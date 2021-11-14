@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Liste des Seances</title>
+</head>
+<body>
+	<h3>Liste des Seances</h3>
+
+	<form th:action="@{seances}" method="post"  th:object="${ff}">
+		<label class="control-label">Matiere</label> <select
+				th:field="*{matiere}" >
+				<option th:value="null" th:text="|choisissez une matiere|"></option>
+				<option th:each="m: ${matieres}" th:value="${m.id}"
+					th:text="${m.nom}"></option>
+			</select>
+		<label class="control-label">Groupe</label> <select
+				th:field="*{groupe}">
+				<option th:value="null" th:text="|choisissez un groupe|"></option>
+				<option th:each="m: ${groupes}" th:value="${m.id}"
+					th:text="${m.nom}"></option>
+			</select>
+		
+		
+		<div>
+			<button class="btn btn-primary" type="submit">Filtrer</button>
+		</div>
+
+	</form>
+
+
+
+	<table>
+		<thead>
+			<tr>
+				<th>Formateur</th>
+				<th>Matiere</th>
+				<th>Groupe</th>
+				<th>Date</th>
+				<th>Duree</th>
+				<th>Description</th>
+				<th>Action</th>
+		</thead>
+		<tbody>
+			<tr th:each="s:${seances}">
+				<td th:text="${s.formateur}"></td>
+				<td th:text="${s.matiere.nom}"></td>
+				<td th:text="${s.groupe.nom}"></td>
+				<td th:text="${s.date}"></td>
+				<td th:text="${s.duree}"></td>
+				<td th:text="${s.description}"></td>
+				<td><a th:href="@{seances/details(id=${s.id})}">Details</a></td>
+				<!-- 				<td><a th:href="@{edit(id=${s.id})}">Modifier</a></td>
+ -->
+				<td><a th:href="@{seances/delete(id=${s.id})}">Supprimer</a></td>
+			</tr>
+		</tbody>
+
+	</table>
+	<a th:href="@{seances/add}">Ajouter</a>
+</body>
+</html>

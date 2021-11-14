@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Affecter les Notes</title>
+</head>
+<body>
+<!-- 		<form th:action="@{student_matiere}" method="post"  th:object="${ff}">
+		<label class="control-label">Matiere</label> <select
+				th:field="*{matiere}" >
+				<option th:value="null" th:text="|choisissez une matiere|"></option>
+				<option th:each="m: ${matieres}" th:value="${m.id}"
+					th:text="${m.nom}"></option>
+			</select>
+		<label class="control-label">Groupe</label> <select
+				th:field="*{groupe}">
+				<option th:value="null" th:text="|choisissez un groupe|"></option>
+				<option th:each="m: ${groupes}" th:value="${m.id}"
+					th:text="${m.nom}"></option>
+			</select>
+		
+		
+		<div>
+			<button class="btn btn-primary" type="submit">Filtrer</button>
+		</div> -->
+	<h3>Profile</h3>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Groupe</th>
+				<th>Nom</th>
+				<th>Prenom</th>
+		</thead>
+		<tbody>
+			<tr >
+				<td th:text="${student.id}"></td>
+				<td th:text="${student.groupe.nom}"></td>
+				<td th:text="${student.nom}"></td>
+				<td th:text="${student.prenom}"></td>
+			</tr>
+		</tbody>
+
+	</table>
+	
+		
+	
+
+</body>
+</html>

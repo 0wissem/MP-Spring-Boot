@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>add student</title>
+</head>
+<body>
+	<form th:action="@{add}" method="post" th:object="${student}">
+
+		<div class="form-group">
+			<label class="control-label">Prenom</label> <input
+				class="form-control" type="text" th:field="*{prenom}" /> <span
+				class="red"></span>
+		</div>
+
+		<div class="form-group">
+			<label class="control-label">Nom</label> <input class="form-control"
+				type="text" th:field="*{nom}" /> <span class="red"></span>
+		</div>
+		<div class="form-group">
+			<label class="control-label">Groupe</label>
+			<!-- 			 <input class="form-control"
+				type="text" th:field="*{groupe}" /> -->
+			<select th:field="*{groupe}">
+				<option th:value="0" th:text=" select"></option>
+				<option th:each="g : ${groupes}" th:value="${g.id}"
+					th:text="${g.nom}"></option>
+			</select> <span class="red"></span>
+		</div>
+		<div>
+			<button class="btn btn-primary" type="submit">Ajouter</button>
+		</div>
+	</form>
+</body>
+</html>

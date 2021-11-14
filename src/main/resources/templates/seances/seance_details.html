@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Seance Details</title>
+</head>
+<body>
+	<h3>Details</h3>
+	<table>
+		<thead>
+			<tr>
+				<th>Formateur</th>
+				<th>Matiere</th>
+				<th>Date</th>
+				<th>Duree</th>
+				<th>Description</th>
+				<th>Liste des etudiants</th>
+		</thead>
+		<tbody>
+			<tr  th:object="${seance}">
+				<td th:text="*{formateur}"></td>
+				<td th:text="*{matiere.nom}"></td>
+				<td th:text="*{date}"></td>
+				<td th:text="*{duree}"></td>
+				<td th:text="*{description}"></td>
+				<td>
+				<ul>
+					<li th:each= "st : *{list_students}" th:value="${st}"  th:text="${st}"></li>
+				</ul>
+				</td>
+		
+
+			</tr>
+		</tbody>
+
+	</table>
+	<!-- 	<a th:href="@{edit_seance}">Confirmer</a>
+ -->
+</body>
+</html>

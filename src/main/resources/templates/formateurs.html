@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Liste des formateurs</title>
+</head>
+<body>
+	<h3>Liste des formateurs</h3>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Nom</th>
+		</thead>
+		<tbody>
+			<tr th:each="f:${formateurs}">
+				<td th:text="${f.id}"></td>
+				<td th:text="${f.nom}"></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
